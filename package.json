@@ -1,0 +1,44 @@
+{
+  "name": "golden-master-demo",
+  "version": "1.0.0",
+  "description": "minimal setup for karma unit test in ES6 with babel, webpack",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "4.2.0",
+    "jasmine-node": "1.16.2",
+    "karma-mocha": "1.3.0",
+    "random-seed": "^0.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^6.0.2",
+    "phantomjs-prebuilt": "^2.1.7",
+    "rimraf": "^2.6.3",
+    "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "generate-test": "npm run build && node dist/source/characterization-test-generator",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./bundle,./.babelrc,./package.json,package-lock.json,yarn.lock,karma.conf.js,test-context.js,./npm-debug.log --copy-files",
+    "start": "npm run build && node dist/source/characterization-test-runner",
+    "start-refacto": "npm run build && node dist/source/characterization-test-runner-refactored"
+  },
+  "keywords": [
+    "karma",
+    "ES6",
+    "Babel",
+    "Webpack",
+    "unit testing"
+  ],
+  "author": "Jamal BOUNASSEH",
+  "license": "MIT"
+}
